@@ -1,0 +1,72 @@
+    <header>
+    <nav class="flex justify-between items-center py-5 bg-green-600">
+        <div  class="flex justify-center ml-8">
+             <a class="" href="#">Canvas</a>
+        </div>
+
+        <div>
+            <ul class="flex gap-6">
+        <li class="">
+          <a class="hover:text-blue-600" href="/gallery">Home</a>
+        </li>
+        <li class="">
+          <a class="hover:text-blue-600" href="/category">Category</a>
+        </li>
+        <li class="">
+          <a class="hover:text-blue-600" href="#">Downloads</a>
+        </li>
+      </ul>
+        </div>
+
+        <div class="flex justify-center mr-8">
+            <form class="">
+        <input class="rounded-md py-1 pl-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="bg-blue-500 p-1 rounded-md" type="submit">Search</button>
+      </form>
+        </div>
+         <div class="flex gap-6 mx-4">
+            <a class="border-2 border-green-800 bg-orange-500 p-1 rounded-md" href="/login" >Log In</a>
+            <a class="border-2 border-green-800 bg-blue-500 p-1 rounded-md" href="/signup">Sign Up</a>
+        </div>
+</nav>
+</header>
+{{!-- section 1 --}}
+<section>
+<div class="flex justify-center gap-6">
+    <form class="flex-row justify-center my-8" action="/" method="post" enctype="multipart/form-data">
+        <input class="border-2 border-blue-600 rounded-xl w-full py-3 pl-3 my-2" type="file" name="file" id="input" multiple>
+        <div class="my-4">
+        <input class="border-2 border-blue-600 rounded-xl py-3 pl-3" type="text" name="title" placeholder="Title">
+        <input class="border-2 border-blue-600 rounded-xl py-3 pl-3" type="text" name="category" placeholder="Category">
+        </div>
+        <div>
+        <textarea class="border-2 border-green-800 p-1 rounded-xl bg-green-600 w-full my-2" name="discription" cols="42" rows="5"></textarea>
+        </div>
+        <button type="submit" class="border-2 border-green-800 p-1 rounded-xl bg-green-600 w-full">submit</button>
+    </form>
+</div>
+</section>
+{{!-- section 2 --}}
+<section class="">
+<div class="container mx-3">
+    <div class="flex gap-6">
+        {{#each updatedImages}}
+        <div class="flex w-80">
+            <div class="">
+                {{#each this.files}}
+                <img src="data:{{this.contanType}};base64,{{this.file}}" class="card-img-top" alt="">
+                {{/each}}
+                <div class="">
+                    <p class="font-header text-xl font-bold">{{this.title}}</p>
+                    <a href="#" class="font-followup font-semibold">{{this.category}}</a>
+                    <p class="font-followup font-bold">{{this.discription}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+</section>
+{{!-- footer --}}
+<footer></footer>
